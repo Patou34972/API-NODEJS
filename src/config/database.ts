@@ -3,7 +3,7 @@ import { Sequelize } from "sequelize";
 
 dotenv.config();
 
-const sequelize = new Sequelize(
+export const sequelize = new Sequelize(
   process.env.DB_NAME as string,
   process.env.DB_USER as string,
   process.env.DB_PASSWORD as string,
@@ -12,14 +12,13 @@ const sequelize = new Sequelize(
     dialect: "mysql",
   }
 );
-sequelize
-  .authenticate()
-  .then(() => {
+export const connectToDatabase = async () => {
+  try {
+    sequelize.authenticate();
     console.log("Connexion BD réussie !");
-  })
-  .catch((err: any) => {
-    console.error("Impossible de se connecter à la base de données:", err);
-  });
-console.log("Autre tâche");
+  } catch (error) {
+    console.error("Impossible de se connecter à la base de données:", error);
+  }
+};
 
-export default sequelize;
+
