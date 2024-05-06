@@ -1,5 +1,5 @@
 interface RoleAttributes {
-    id: number;
+    id?: number;
     nom: string;
 }
 export default RoleAttributes

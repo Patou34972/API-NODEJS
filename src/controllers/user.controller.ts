@@ -55,6 +55,7 @@ export const postUsers = async (req: Request, res: Response): Promise<void> => {
     email: req.body.email,
     mot_passe: req.body.mot_passe,
     photo: req.body.photo,
+    
   });
   res.status(200).json(user);
 };

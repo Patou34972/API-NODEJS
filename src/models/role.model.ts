@@ -4,7 +4,7 @@ import User from "./user.model";
 import RoleAttributes from "../interfaces/role.interface";
 
 class Role extends Model<RoleAttributes> implements RoleAttributes {
-  public id!: number;
+  public id?: number;
   public nom!: string;
 
   static initModel = () => {
